@@ -13,7 +13,7 @@ app.use(fileUpload({
     tempFileDir : '/tmp/'
 }));
 
-app.post('/file', function(req, res) {
+app.post('/api/file', function(req, res) {
    
   let sampleFile;
   let uploadPath;
