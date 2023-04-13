@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname,'/build')));
 
 app.post('/api/file', async function(req, res) {
   let filename = req.path.slice(1)
-
+console.log(filename)
   try {
     let s3File = await s3.getObject({
       Bucket: process.env.BUCKET,
