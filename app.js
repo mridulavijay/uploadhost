@@ -5,6 +5,7 @@ const s3 = new AWS.S3()
 const app = express();
 const path=require('path')
 const cors=require('cors');
+process.env.BUCKET= 'testbucketcyc';
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
@@ -19,13 +20,13 @@ app.post('/api/file', async function(req, res) {
   let filename = req.path.slice(1)
 console.log(filename)
   try {
-    let s3File = await s3.getObject({
+    let s3File = await s3.putObject({
       Bucket: process.env.BUCKET,
       Key: filename,
     }).promise()
 
-    res.set('Content-type', s3File.ContentType)
-    res.send(s3File.Body.toString()).end()
+   // res.set('Content-type', s3File.ContentType)
+    //res.send(s3File.Body.toString()).end()
   } catch (error) {
     if (error.code === 'NoSuchKey') {
       console.log(`No such key ${filename}`)
