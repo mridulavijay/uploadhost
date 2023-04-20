@@ -13,7 +13,7 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname,'/build')));  
 app.use(fileUpload({
     useTempFiles : true,
-    tempFileDir : '/tmp/'
+    tempFileDir : '/tmp'
 }));
 app.post('/api/upload', function(req, res) {
   let sampleFile;
