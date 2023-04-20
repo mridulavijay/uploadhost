@@ -11,6 +11,8 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 // default options
 app.use(express.static(path.join(__dirname,'/build')));  
+app.use(express.static(__dirname + '/tmp'));
+app.use('/tmp', express.static('tmp'));
 app.use(fileUpload({
     useTempFiles : true,
     tempFileDir : '/tmp'
