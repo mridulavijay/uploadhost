@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 // default options
-app.use(express.static(path.join(__dirname,'/tmp')));  
+app.use(express.static(path.join(__dirname,'/build')));  
 app.use(fileUpload({
     useTempFiles : true,
     tempFileDir : '/tmp/'
